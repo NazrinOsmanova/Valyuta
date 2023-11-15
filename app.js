@@ -6,6 +6,11 @@ let noqtedenSonra1 = 0;
 let noqtedenSonra2 = 0;
 let text1 = "";
 let text2 = "";
+let input1Changed = false;
+let input2Changed = false;
+let valyuta1 = "RUB";
+let valyuta2 = "USD";
+document.querySelector("#inp1").value = 1;
 
 function funk2(input, noqteSayi, noqtedenSonra) {
     let text = "";
@@ -46,7 +51,6 @@ input2.addEventListener("input", function () {
     funk2(input2, noqteSayi2, noqtedenSonra2);
 });
 
-
 function funk1(a) {
     document.querySelectorAll(`section .container .boxes ${a} .items .item`).forEach(f => {
         f.addEventListener("click", function () {
@@ -71,17 +75,12 @@ function funk1(a) {
 funk1(".box:first-child");
 funk1(".box:last-child");
 
-let input1Changed = false;
-let input2Changed = false;
-document.querySelector("#inp1").value = 1;
-
-let valyuta1 = "RUB";
-let valyuta2 = "USD";
-
 fetch(`https://v6.exchangerate-api.com/v6/6e13f433f35a41f6bea94393/latest/RUB`)
     .then(res => res.json())
     .then(data => {
         document.querySelector("#inp2").value = (document.querySelector("#inp1").value * data.conversion_rates.USD).toFixed(4);
+        document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (data.conversion_rates.USD).toFixed(4);;
+        document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates.USD).toFixed(4);;
     });
 
 let funk3 = () => {
@@ -118,10 +117,10 @@ document.querySelectorAll(".boxes .box:first-child .item").forEach(f => {
                 .then(res => res.json())
                 .then(data => {
                     document.querySelector("#inp2").value = (document.querySelector("#inp1").value * data.conversion_rates[valyuta2]).toFixed(4);
-                    document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (data.conversion_rates[valyuta2]).toFixed(4);;
-                    document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates[valyuta2]).toFixed(4);;
+                    document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (data.conversion_rates[valyuta2]).toFixed(4);
+                    document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates[valyuta2]).toFixed(4);
                 });
-        }
+        };
     });
 });
 
@@ -139,10 +138,10 @@ document.querySelectorAll(".boxes .box:last-child .item").forEach(f => {
                 .then(res => res.json())
                 .then(data => {
                     document.querySelector("#inp2").value = (document.querySelector("#inp1").value * data.conversion_rates[valyuta2]).toFixed(4);
-                    document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates[valyuta2]).toFixed(4);;
-                    document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (data.conversion_rates[valyuta2]).toFixed(4);;
+                    document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (data.conversion_rates[valyuta2]).toFixed(4);
+                    document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates[valyuta2]).toFixed(4);
                 });
-        }
+        };
     });
 });
 
