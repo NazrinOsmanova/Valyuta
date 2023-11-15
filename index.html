@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Valyuta</title>
+</head>
+
+<body>
+
+    <nav>
+        <a href="#"><img src="./img/img1.svg" alt="img"></a>
+        <ul>
+            <li><a href="#">БАНК</a></li>
+            <li><a href="#">БИЗНЕС</a></li>
+            <li><a href="#">ИНВЕСТИЦИИ</a></li>
+            <li><a href="#">СТРАХОВАНИЕ</a></li>
+            <li><a href="#">МОБАЙЛ</a></li>
+            <li><a href="#">ПУТЕШЕСТВИЯ</a></li>
+            <li><a href="#">РАЗВЛЕЧЕНИЯ</a></li>
+        </ul>
+        <a href="#" class="exit">ВОЙТИ</a>
+    </nav>
+
+    <section>
+        <div class="container">
+            <h1>Конвертер валют онлайн</h1>
+            <div class="boxes">
+                <div class="box">
+                    <h5>У меня есть</h5>
+                    <div class="items">
+                        <div class="item myClass">RUB</div>
+                        <div class="item">USD</div>
+                        <div class="item">EUR</div>
+                        <div class="item">AZN</div>
+                    </div>
+                    <div class="result">
+                        <input type="text" id="inp1">
+                        <p><span>1</span> <span>RUB</span> = <span>0.0135</span> <span>USD</span></p>
+                    </div>
+                </div>
+                <div class="box">
+                    <h5>Хочу приобрести</h5>
+                    <div class="items">
+                        <div class="item">RUB</div>
+                        <div class="item myClass">USD</div>
+                        <div class="item">EUR</div>
+                        <div class="item">AZN</div>
+                    </div>
+                    <div class="result">
+                        <input type="text" id="inp2">
+                        <p><span>1</span> <span>USD</span> = <span>73.8896</span> <span>RUB</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
