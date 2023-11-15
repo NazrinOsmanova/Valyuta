@@ -71,8 +71,8 @@ function funk1(a) {
 funk1(".box:first-child");
 funk1(".box:last-child");
 
-var input1Changed = false;
-var input2Changed = false;
+let input1Changed = false;
+let input2Changed = false;
 document.querySelector("#inp1").value = 1;
 
 let valyuta1 = "RUB";
@@ -118,6 +118,8 @@ document.querySelectorAll(".boxes .box:first-child .item").forEach(f => {
                 .then(res => res.json())
                 .then(data => {
                     document.querySelector("#inp2").value = (document.querySelector("#inp1").value * data.conversion_rates[valyuta2]).toFixed(4);
+                    document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (data.conversion_rates[valyuta2]).toFixed(4);;
+                    document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates[valyuta2]).toFixed(4);;
                 });
         }
     });
@@ -137,6 +139,8 @@ document.querySelectorAll(".boxes .box:last-child .item").forEach(f => {
                 .then(res => res.json())
                 .then(data => {
                     document.querySelector("#inp2").value = (document.querySelector("#inp1").value * data.conversion_rates[valyuta2]).toFixed(4);
+                    document.querySelector(".boxes .box:first-child .result p span:nth-child(3)").innerText = (1 / data.conversion_rates[valyuta2]).toFixed(4);;
+                    document.querySelector(".boxes .box:last-child .result p span:nth-child(3)").innerText = (data.conversion_rates[valyuta2]).toFixed(4);;
                 });
         }
     });
